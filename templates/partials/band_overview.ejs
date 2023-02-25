@@ -1,0 +1,75 @@
+<style>
+  .bandOverviewSection {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  
+  .bandOverviewSection .overviewTitle {
+    font-size: 24px;
+    flex: 0 0 7mm;
+    overflow: hidden;
+    writing-mode: vertical-lr;
+    text-align: center;
+    padding-right: 1mm;
+  }
+
+  .bandOverviewSection .overviewListArea {
+    flex: 1 0 20mm;
+  }
+
+  .bandOverviewSection .listRow {
+    border: 1px solid black;
+    border-radius: 3mm;
+    padding: .7mm 3mm;
+    margin-top: .6mm;
+    font-size: 15px;
+    line-height: 4.5mm;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+  }
+
+  .bandOverviewSection .listRow.titleRow {
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+  }
+
+  .bandOverviewSection .nameCol {
+    flex: 0 0 40mm;
+  }
+
+  .bandOverviewSection .instrumentCol {
+    flex: 0 0 35mm;
+  }
+
+  .bandOverviewSection .channelsCol {
+    flex: 0 0 25mm;
+    text-align: center;
+  }
+
+  .bandOverviewSection .notesCol {
+    flex: 1 0 20mm;
+  }
+</style>
+<div class="bandOverviewSection">
+  <h1 class="overviewTitle"><%= section.title %></h1>
+  <div class="overviewListArea">
+    <div class="listRow titleRow">
+      <p class="nameCol"><%= section.labels.player %></p>
+      <p class="instrumentCol"><%= section.labels.instrument %></p>
+      <p class="channelsCol"><%= section.labels.channels %></p>
+      <p class="notesCol"><%= section.labels.notes %></p>
+    </div>
+    <% section.instruments.forEach(instrument => { %>
+      <div class="listRow">
+        <p class="nameCol"><%= instrument.player %></p>
+        <p class="instrumentCol"><%= instrument.instrument %></p>
+        <p class="channelsCol"><%= instrument.channels %></p>
+        <p class="notesCol"><%= instrument.notes %></p>
+      </div>
+    <% }) %>
+  </div>
+</div>

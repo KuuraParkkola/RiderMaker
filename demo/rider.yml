@@ -1,0 +1,172 @@
+document:
+  band: "Demo Band"
+  title: "Technical Rider"
+  version: "2023-1"
+  page:
+    height: "297.35mm"
+    width: "210mm"
+    margin:
+      top: "17mm"
+      bottom: "12mm"
+      side: "18mm"
+  footer_text: "Here you can add something important like disclaimers and such."
+
+pages:
+- - section: title_area
+    title: "Technical Rider 2023"
+    band: "Demo Band"
+    socials:
+    - service: instagram
+      tag: "demo_band"
+    - service: tiktok
+      tag: "demoband"
+    - service: spotify
+      tag: "Demo Band"
+    - service: twitter
+      tag: "demoband"
+
+  - section: members
+    title: ""
+    description: ""
+    members:
+    - name: "Vance Vocalist"
+      role: "Vocals"
+    - name: "Gary Guitarist"
+      role: "Guitar, backing vocals"
+    - name: "Pamela Pianist"
+      role: "Keyboards"
+    - name: "Ben Basist"
+      role: "Bass"
+    - name: "Diana Drummer"
+      role: "Drums backing vocals"
+
+
+  - section: band_overview
+    title: "Overview"
+    description: ""
+    instruments:
+    - { player: "Vance Vocalist", instrument: "Vocals", channels: 1, notes: "" }
+    - { player: "Gary Guitarist", instrument: "Guitar", channels: 1, notes: "Miced amplifier" }
+    - { player: "", instrument: "Backing vocals", channels: 1, notes: "" }
+    - { player: "Pamela Pianist", instrument: "Electric Piano", channels: 2, notes: "" }
+    - { player: "Ben Basist", instrument: "Bass", channels: 1, notes: "DI Box" }
+    - { player: "Diana Drummer", instrument: "Drums", channels: 8, notes: "BD, SD, HH, 3xTom, 5 cymbals" }
+    - { player: "", instrument: "Backing vocals", channels: 1, notes: "" }
+    labels:
+      player: "Name"
+      instrument: "Instrument"
+      channels: "Channels"
+      notes: "Notes"
+
+  
+  - section: monitoring
+    title: "Monitors"
+    description: ""
+    groups:
+    - { group: 1, player: "Gary", requests: "Guitar, own vocals, lead vocals, bass" }
+    - { group: 2, player: "Vance", requests: "Lead vocal, backing vocals, keyboards" }
+    - { group: 3, player: "Pamela", requests: "Keyboards, lead vocal, guitar" }
+    - { group: 4, player: "Ben", requests: "Bass, Bass drum, Lead vocal" }
+    - { group: 5, player: "Diana", requests: "Own vocals, bass drum, snare drum, bass, lead vocal" }
+    labels:
+      group: "Group"
+      player: "Player"
+      requests: "Wishes"
+
+
+  - section: contacts
+    title: "Contacts"
+    description: ""
+    band_contact: demoband@mail.com
+    contacts:
+    - name: "Pamela Pianist"
+      role: "Contact for the band"
+      phone: "020 123 1234"
+      email: "vance.vocalist@mail.com"
+    - name: "Margaret Manager"
+      role: "Manager"
+      phone: "011 222 3344"
+      email: "margaret.manager@mail.com"
+    - name: "Theo Technician"
+      role: "Technician"
+      phone: "010 212 2332"
+      email: "theo.technician@mail.com"
+
+- - section: requirements
+    title: ""
+    description: ""
+    requirements:
+    - title: "Staff"
+      content: "There must be technical staff doing technical things."
+    - title: "Schedule"
+      content: "The band takes their time setting up. The band will pack up and leave some time after the show."
+    - title: "Sound system"
+      content: "There should be a sound sound system, otherwise the performance is going to be rather quiet."
+    - title: "Stage"
+      content: "The band prefers to perform a stage of some sort."
+    - title: "FOH"
+      content: "The front of house should be in front of the PA and there should be space for a mixer."
+    - title: "Monitors"
+      content: "The band needs monitors to hear what they are doing."
+    - title: "Backline"
+      content: "The band will bring themselves and probably some instruments too."
+
+- - section: channel_list
+    title: "Channel List and Stageplan"
+    description: "Highlighted rows can be omitted if necessary."
+    channels:
+    - { ch: 1, instrument: "BD", source: "beta 52", phantom: false, stand: "Short" }
+    - { ch: 2, instrument: "SD", source: "SM57", phantom: false, stand: "Clamp" }
+    - { ch: 3, instrument: "Tom (Hi)", source: "e904", phantom: false, stand: "Clamp" }
+    - { ch: 4, instrument: "Tom (Mid)", source: "e904", phantom: false, stand: "Clamp" }
+    - { ch: 5, instrument: "Tom (Low)", source: "e904", phantom: false, stand: "Clamp" }
+    - { ch: 6, instrument: "HH", source: "SM81", phantom: true, stand: "Tall", highlight: true }
+    - { ch: 7, instrument: "OH (L)", source: "C214", phantom: true, stand: "Tall" }
+    - { ch: 8, instrument: "OH (R)", source: "C214", phantom: true, stand: "Tall" }
+    - { ch: 9, instrument: "Bass", source: "Act. DI", phantom: true, stand: "-" }
+    - { ch: 10, instrument: "Gtr", source: "e906", phantom: false, stand: "-" }
+    - { ch: 11, instrument: "E.Pno (L)", source: "Pas. Stereo DI", phantom: false, stand: "-" }
+    - { ch: 12, instrument: "E.Pno (R)", source: "Pas. Stereo DI", phantom: false, stand: "-", highlight: true }
+    - { ch: 13, instrument: "LD Voc", source: "e935", phantom: false, stand: "Tall" }
+    - { ch: 14, instrument: "BVoc 1", source: "SM58", phantom: false, stand: "Tall" }
+    - { ch: 15, instrument: "BVoc 2", source: "SM58", phantom: false, stand: "Tall" }
+    labels:
+      ch: "Channel"
+      instrument: "Instrument"
+      source: "Source"
+      phantom: "+48V"
+      stand: "Stand"
+  
+  - section: stage_plan
+    title: ""
+    description: ""
+    image: "stageplan.png"
+
+- - section: equipment_list
+    title: "Equipment Requirements"
+    description: "Please notify well in advance if any of the requirements cannot be filled by the venue or event organizers."
+    equipment:
+    - { item: "Stands", is_group: true }
+    - { item: "Tall stand with adjustable arm for drum overheads and hi-hat", count: 3 }
+    - { item: "Tall stand with adjustable arm for backing vocalists", count: 2 }
+    - { item: "Tall stand with no arm for lead vocalist", count: 1 }
+    - { item: "Cables", is_group: true }
+    - { item: "For drums, XLR, lengths from 3 to 7m", count: 8 }
+    - { item: "Vocalists, XLR, 7m long", count: 3 }
+    - { item: "Other instruments, XLR, 3x 7m and 1x 5m", count: 4 }
+    - { item: "Cabling needed for monitors" }
+    - { item: "Enough power cables to cover the needs marked in the stage plan" }
+    labels:
+      item: "Item"
+      count: "Count"
+  
+  - section: equipment_list
+    title: "Equipment brought by the band"
+    description: ""
+    equipment:
+    - { item: "Microphones and other input devices" }
+    - { item: "Backline including instruments, amplifiers etc." }
+    - { item: "Sound console and IO-unit" }
+    labels:
+      item: "Item"
+      count: ""

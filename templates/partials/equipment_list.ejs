@@ -1,0 +1,55 @@
+<style>
+  .equipmentListSection .listRow {
+    border: 1px solid black;
+    border-radius: 3mm;
+    padding: .7mm 3mm;
+    margin-top: .6mm;
+    font-size: 15px;
+    line-height: 4.5mm;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+  }
+
+  .equipmentListSection .listRow.highlighted {
+    background-color: #DDD;
+  }
+
+  .equipmentListSection .listRow.titleRow {
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+  }
+
+  .equipmentListSection .itemCol {
+    flex: 1 0 20mm;
+  }
+
+  .equipmentListSection .countCol {
+    flex: 0 0 35mm;
+    text-align: center;
+  }
+
+  .equipmentListSection .groupTitle {
+    font-weight: 600;
+    padding-left: 5mm;
+  }
+</style>
+<div class="equipmentListSection">
+  <div class="listRow titleRow">
+    <p class="itemCol"><%= section.labels.item %></p>
+    <p class="countCol"><%= section.labels.count %></p>
+  </div>
+  <% section.equipment.forEach(item => { %>
+    <div class="<%= item.highlight ? "listRow highlighted" : "listRow" %>">
+      <% if (item.is_group) { %>
+        <p class="groupTitle"><%= item.item %></p>
+      <% } else { %>
+        <p class="itemCol"><%= item.item %></p>
+        <p class="countCol"><%= item.count %></p>
+      <% } %>
+    </div>
+  <% }) %>
+</div>
+  

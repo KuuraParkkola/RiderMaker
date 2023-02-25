@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Verdana';
+    }
+
+    .page {
+      position: relative;
+      width: <%= document.page.width %>;
+      height: <%= document.page.height %>;
+      border: 1px lightgray solid;
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+      align-items: stretch;
+    }
+
+    .pageHeader {
+      flex: 0 0 <%= document.page.margin.top %>;
+      overflow: hidden;
+      text-align: right;
+      padding-bottom: 1mm;
+      display: flex;
+      flex-direction: column;
+      align-items: right;
+      justify-content: flex-end;
+      margin: 0 <%= document.page.margin.side %>;
+    }
+
+    .pageHeader .line1 {
+      font-weight: normal;
+      font-size: 21px;
+      line-height: 5mm;
+      margin: 0;
+    }
+
+    .pageHeader .line2 {
+      font-weight: normal;
+      font-size: 28px;
+      margin: 0;
+    }
+
+    .pageHeader .band {
+      font-weight: bold;
+    }
+
+    .pageFooter {
+      flex: 0 0 <%= document.page.margin.bottom %>;
+      overflow: hidden;
+      margin: 0 <%= document.page.margin.side %>;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .pageFooter .textContent {
+      font-size: 10px;
+      width: 130mm;
+      text-align: right;
+    }
+
+    .pageFooter .pageNumber {
+      flex-basis: 12mm;
+      text-align: right;
+      margin-left: 2mm;
+    }
+
+    .pageContent {
+      overflow: hidden;
+      flex: 1 0 100mm;
+      margin: 0 <%= document.page.margin.side %>;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .section {
+      margin-top: 3mm;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .section .sectionTitle {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 2mm;
+    }
+
+    .section .sectionDisclaimer {
+      width: 140mm;
+      text-align: center;
+      font-size: 12px;
+      align-self: center;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= document.band %> <%= document.title %> <%= document.version %></title>
+  </head>
+  <body>
+
+    <% pages.forEach((page, pagenum) => { %>
+      <div class="page">
+        <div class="pageHeader">
+          <% if (pagenum) { %>
+            <h2 class="line1"><%= document.title %></h2>
+            <h1 class="line2"><span class="band"><%= document.band %></span> <%= document.version %></h1>
+          <% } %>
+        </div>
+
+        <!-- ----- ----- ----- ----- ----- ----- ----- ----- -->
+        
+        <div class="pageContent">
+          <% page.forEach(section => { %>
+            <div class="section">
+              <% console.log(section.section) %>
+              <% switch (section.section) {
+
+
+                case 'title_area': %>
+                <!-- ----- ----- Render title area ----- ----- -->
+                <%- include("./partials/title_area.ejs", { settings, section }) %>
+                <% break %>
+
+
+              <% case 'members': %>
+                <!-- ----- ----- Render members area ----- ----- -->
+                <% if (section.title) { %>
+                  <h1 class="sectionTitle"><%= section.title %></h1>
+                <% } %>
+                <% if (section.description) { %>
+                  <p class="sectionDisclaimer"><%= section.description %></p>
+                <% } %>
+                <%- include("./partials/members.ejs", { settings, section }) %>
+                <% break %>
+
+
+              <% case 'contacts': %>
+                <!-- ----- ----- Render contacts area ----- ----- -->
+                <% if (section.title) { %>
+                  <h1 class="sectionTitle"><%= section.title %></h1>
+                <% } %>
+                <% if (section.description) { %>
+                  <p class="sectionDisclaimer"><%= section.description %></p>
+                <% } %>
+                <%- include("./partials/contacts.ejs", { settings, section }) %>
+                <% break %>
+
+
+              <% case 'requirements': %>
+                <!-- ----- ----- Render requirements area ----- ----- -->
+                <% if (section.title) { %>
+                  <h1 class="sectionTitle"><%= section.title %></h1>
+                <% } %>
+                <% if (section.description) { %>
+                  <p class="sectionDisclaimer"><%= section.description %></p>
+                <% } %>
+                <%- include("./partials/requirements.ejs", { settings, section }) %>
+                <% break %>
+
+
+              <% case 'stage_plan': %>
+                <!-- ----- ----- Render stage plan area ----- ----- -->
+                <% if (section.title) { %>
+                  <h1 class="sectionTitle"><%= section.title %></h1>
+                <% } %>
+                <% if (section.description) { %>
+                  <p class="sectionDisclaimer"><%= section.description %></p>
+                <% } %>
+                <%- include("./partials/stage_plan.ejs", { settings, section }) %>
+                <% break %>
+
+
+              <% case 'channel_list': %>
+                <!-- ----- ----- Render channel list area ----- ----- -->
+                <% if (section.title) { %>
+                  <h1 class="sectionTitle"><%= section.title %></h1>
+                <% } %>
+                <% if (section.description) { %>
+                  <p class="sectionDisclaimer"><%= section.description %></p>
+                <% } %>
+                <%- include("./partials/channel_list.ejs", { settings, section }) %>
+                <% break %>
+
+
+              <% case 'equipment_list': %>
+                <!-- ----- ----- Render equipment needs area ----- ----- -->
+                <% if (section.title) { %>
+                  <h1 class="sectionTitle"><%= section.title %></h1>
+                <% } %>
+                <% if (section.description) { %>
+                  <p class="sectionDisclaimer"><%= section.description %></p>
+                <% } %>
+                <%- include("./partials/equipment_list.ejs", { settings, section }) %>
+                <% break %>
+
+
+              <% case 'band_overview': %>
+                <!-- ----- ----- Render band overview area ----- ----- -->
+                <%- include("./partials/band_overview.ejs", { settings, section }) %>
+                <% break %>
+
+
+              <% case 'monitoring': %>
+                <!-- ----- ----- Render monitoring area ----- ----- -->
+                <%- include("./partials/monitoring.ejs", { settings, section }) %>
+                <% break %>
+
+
+              <% default: %>
+                <% break %>
+              <% } %>
+            </div>
+          <% }) %>
+        </div>
+        
+        <!-- ----- ----- ----- ----- ----- ----- ----- ----- -->
+        
+        <div class="pageFooter">
+          <div class="textContent">
+            <p><%= document.footer_text %></p>
+          </div>
+          <div class="pageNumber">
+            <p><%= pagenum+1 %> (<%= pages.length %>)</p>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+    </div>
+  </body>
+</html>
