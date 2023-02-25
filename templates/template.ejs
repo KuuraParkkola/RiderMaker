@@ -109,9 +109,11 @@
   </head>
   <body>
 
+    <%# Iterated over each page as defined in the configuration file %>
     <% pages.forEach((page, pagenum) => { %>
       <div class="page">
         <div class="pageHeader">
+          <%# Create header on all pages except the first one %>
           <% if (pagenum) { %>
             <h2 class="line1"><%= document.title %></h2>
             <h1 class="line2"><span class="band"><%= document.band %></span> <%= document.version %></h1>
@@ -121,18 +123,19 @@
         <!-- ----- ----- ----- ----- ----- ----- ----- ----- -->
         
         <div class="pageContent">
+          <%# Iterate over all the sections defined for this page %>
           <% page.forEach(section => { %>
             <div class="section">
-              <% console.log(section.section) %>
+              <%# Choose the section type to render %>
               <% switch (section.section) {
-
-
+                
+              /* A title section with the name of the document and the band, and social media handles*/
                 case 'title_area': %>
                 <!-- ----- ----- Render title area ----- ----- -->
                 <%- include("./partials/title_area.ejs", { settings, section }) %>
                 <% break %>
 
-
+              <%# A section with the names of the band members and their roles in the band %>
               <% case 'members': %>
                 <!-- ----- ----- Render members area ----- ----- -->
                 <% if (section.title) { %>
@@ -144,7 +147,7 @@
                 <%- include("./partials/members.ejs", { settings, section }) %>
                 <% break %>
 
-
+              <%# A section with the contacts (name, phone number and email) for the band %>
               <% case 'contacts': %>
                 <!-- ----- ----- Render contacts area ----- ----- -->
                 <% if (section.title) { %>
@@ -156,7 +159,7 @@
                 <%- include("./partials/contacts.ejs", { settings, section }) %>
                 <% break %>
 
-
+              <%# Written requirements. A number of paragraphs with a title and a description %>
               <% case 'requirements': %>
                 <!-- ----- ----- Render requirements area ----- ----- -->
                 <% if (section.title) { %>
@@ -168,7 +171,7 @@
                 <%- include("./partials/requirements.ejs", { settings, section }) %>
                 <% break %>
 
-
+              <%# A picture of the band's stage plan %>
               <% case 'stage_plan': %>
                 <!-- ----- ----- Render stage plan area ----- ----- -->
                 <% if (section.title) { %>
@@ -180,7 +183,7 @@
                 <%- include("./partials/stage_plan.ejs", { settings, section }) %>
                 <% break %>
 
-
+              <%# A list of channels, instruments and equipment for each audio channel used %>
               <% case 'channel_list': %>
                 <!-- ----- ----- Render channel list area ----- ----- -->
                 <% if (section.title) { %>
@@ -192,7 +195,7 @@
                 <%- include("./partials/channel_list.ejs", { settings, section }) %>
                 <% break %>
 
-
+              <%# An equipment list table where the item and a count of the item can be specified. Elements can be grouped and highlighted %>
               <% case 'equipment_list': %>
                 <!-- ----- ----- Render equipment needs area ----- ----- -->
                 <% if (section.title) { %>
@@ -204,18 +207,17 @@
                 <%- include("./partials/equipment_list.ejs", { settings, section }) %>
                 <% break %>
 
-
+              <%# An overview table with player names, their instruments, channel counts and additional notes %>
               <% case 'band_overview': %>
                 <!-- ----- ----- Render band overview area ----- ----- -->
                 <%- include("./partials/band_overview.ejs", { settings, section }) %>
                 <% break %>
 
-
+              <%# An overview table for monitor requirements with monitor groups, players and monitoring wishes %>
               <% case 'monitoring': %>
                 <!-- ----- ----- Render monitoring area ----- ----- -->
                 <%- include("./partials/monitoring.ejs", { settings, section }) %>
                 <% break %>
-
 
               <% default: %>
                 <% break %>
@@ -226,6 +228,7 @@
         
         <!-- ----- ----- ----- ----- ----- ----- ----- ----- -->
         
+        <%# Render a footer with a text field and page numbers %>
         <div class="pageFooter">
           <div class="textContent">
             <p><%= document.footer_text %></p>
